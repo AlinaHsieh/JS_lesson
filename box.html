@@ -22,13 +22,24 @@
             position: fixed;
             top: 100px;
             left: 10%;
-            transform: 1s;
-            
+            /* transform: translate(0px,5px);
+            transition-duration: 2s; */
+            animation:fade 1s;
+        }
+        @keyframes fade{
+            from{
+                opacity:0;
+                top: 80px;
+            }
+            to{
+                opacity: 1;
+                top: 100px;
+            }
         }
         #myBtn{
             position:absolute;
             top: 10px;
-            left: 97%;
+            right: 10px;
         }
        div>#info{
             text-align: center;
