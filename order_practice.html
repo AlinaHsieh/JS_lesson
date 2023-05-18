@@ -63,7 +63,10 @@
             border: 1px solid lightgray;
             width: calc(100%/5);
         }
-       
+       .price::before,
+        #sumtext::before{
+        content: "$";
+       }
     </style>
 </head>
 
@@ -143,14 +146,14 @@
             console.log('num1Value', num1Value);
             let pri1Value = pri1.innerText;
             let calc1result = Number(num1Value) * Number(pri1Value);
-            calc1.innerText = "小計金額:" + calc1result;
+            calc1.innerText = "$" + calc1result;
         }
         function btnFun2() {
             let num2Value = num2.value;
             console.log('num2Value', num2Value);
             let pri2Value = pri2.innerText;
             let calc2result = Number(num2Value) * Number(pri2Value);
-            calc2.innerText = "小計金額:" + calc2result;
+            calc2.innerText = "$" + calc2result;
         }
         function btnFun3() {
             let num3Value = num3.value;
@@ -158,7 +161,7 @@
             let pri3Value = pri3.innerText;
             let calc3result = Number(num3Value) * Number(pri3Value);
             console.log(typeof (calc3result));
-            calc3.innerText = "小計金額:" + calc3result;
+            calc3.innerText = "$" + calc3result;
         }
         function sumbtn() {
             let num1Value = num1.value;
@@ -179,9 +182,9 @@
             let calc3result = Number(num3Value) * Number(pri3Value);
             sumtext.innerText = "總計金額：" + sumValue;
 
-            calc1.innerText = "小計金額:" + calc1result;
-            calc2.innerText = "小計金額:" + calc2result;
-            calc3.innerText = "小計金額:" + calc3result;
+            calc1.innerText = "$" + calc1result;
+            calc2.innerText = "$" + calc2result;
+            calc3.innerText = "$" + calc3result;
 
             let discount=0;
             if(sumValue>=300){
@@ -197,20 +200,20 @@
             let num1Value = num1.value;
             let pri1Value = pri1.innerText;
             let calc1result = Number(num1Value) * Number(pri1Value); 
-            calc1.innerText = "小計金額:" + calc1result;
+            calc1.innerText = "$" + calc1result;
         }
         function changeCount2(){
             let num2Value = num2.value;
             let pri2Value = pri2.innerText;
             let calc2result = Number(num2Value) * Number(pri2Value);
-            calc2.innerText = "小計金額:" + calc2result;
+            calc2.innerText = "$" + calc2result;
         }
         function changeCount3(){
             let num3Value = num3.value;
             let pri3Value = pri3.innerText;
             let calc3result = Number(num3Value) * Number(pri3Value);
             calc3result=calc3result;
-            calc3.innerText = "小計金額:" + calc3result;
+            calc3.innerText = "$" + calc3result;
         }
         function sumchange(){
             let num1Value = num1.value;
