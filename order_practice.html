@@ -83,8 +83,8 @@
             <div class="price price1" id="pri1">100</div>
             <div class="num num1">
                 <label for="num1"></label>
-                <input type="number" name="num1" id="num1">
-                <!-- <input type="button" value="確定" onclick="btnFun1()"> -->
+                <input type="number" name="num1" id="num1" value="0" min="0" onchange="changeCount();sumchange()" >
+               <!-- min=0，才不會出現負數；設定onchange事件，讓數量變動可以即時顯示 -->
             </div>
             <div class="calc calc1">
                 <span id="calc1">金額:</span>
@@ -96,7 +96,7 @@
             <div class="price price2" id="pri2">200</div>
             <div class="num num2">
                 <label for="num2"></label>
-                <input type="number" name="num2" id="num2">
+                <input type="number" name="num2" id="num2" value="0" min="0" onchange="changeCount2();sumchange()">
                 <!-- <input type="button" value="確定" onclick="btnFun2()"> -->
             </div>
             <div class="calc calc2">
@@ -109,7 +109,7 @@
             <div class="price price3" id="pri3">300</div>
             <div class="num num3">
                 <label for="num3"></label>
-                <input type="number" name="num3" id="num3">
+                <input type="number" name="num3" id="num3" value="0" min="0" onchange="changeCount3();sumchange()">
                 <!-- <input type="button" value="確定" onclick="btnFun3()"> -->
 
             </div>
@@ -121,7 +121,7 @@
 
         </div>
         <div class="sum">
-            <input type="button" id="sum" value="總計" onclick="sumbtn()">
+            <input type="button" id="sum" value="總計" onclick="sumbtn()" onchange="sumchange()">
             <span id="sumtext">金額：</span>
         </div>
     </div>
@@ -136,7 +136,7 @@
         let calc2 = document.getElementById("calc2");
         let calc3 = document.getElementById("calc3");
         let sum = document.getElementById("sum");
-
+        let sumtext=document.getElementById("sumtext");
 
         function btnFun1() {
             let num1Value = num1.value;
@@ -191,6 +191,42 @@
                 discount=sumValue;
             }
         }
+       
+        // 在JS設定即時改變的金額(記得要顯示出來)
+        function changeCount(){
+            let num1Value = num1.value;
+            let pri1Value = pri1.innerText;
+            let calc1result = Number(num1Value) * Number(pri1Value); 
+            calc1.innerText = "小計金額:" + calc1result;
+        }
+        function changeCount2(){
+            let num2Value = num2.value;
+            let pri2Value = pri2.innerText;
+            let calc2result = Number(num2Value) * Number(pri2Value);
+            calc2.innerText = "小計金額:" + calc2result;
+        }
+        function changeCount3(){
+            let num3Value = num3.value;
+            let pri3Value = pri3.innerText;
+            let calc3result = Number(num3Value) * Number(pri3Value);
+            calc3result=calc3result;
+            calc3.innerText = "小計金額:" + calc3result;
+        }
+        function sumchange(){
+            let num1Value = num1.value;
+            let pri1Value = pri1.innerText;
+            let num2Value = num2.value;
+            let pri2Value = pri2.innerText;
+            let num3Value = num3.value;
+            let pri3Value = pri3.innerText;
+            // let sumValue = (Number(num1Value) * Number(pri1Value)) + (Number(num2Value) * Number(pri2Value)) + (Number(num3Value) * Number(pri3Value));
+            let calc1result = Number(num1Value) * Number(pri1Value); 
+            let calc2result = Number(num2Value) * Number(pri2Value);
+            let calc3result = Number(num3Value) * Number(pri3Value);
+            let sumValue = calc1result+calc2result+calc3result;
+            sumtext.innerText = "總計金額：" + sumValue;
+        }
+
 
     </script>
 
